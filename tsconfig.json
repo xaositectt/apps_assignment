@@ -32,5 +32,5 @@
   "types": ["node", "jest"],
   "import/resolver": {
     "typescript": {}
-  },
+  }
 }
