@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { colors } from "@/theme";
+import { colors } from "@/style/theme";
 
 import labels from "@/messages/en.json"
 

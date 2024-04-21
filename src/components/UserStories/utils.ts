@@ -1,5 +1,5 @@
 import { FeatureTitles } from "@/api/user_story";
-import { colors } from "@/theme";
+import { colors } from "@/style/theme";
 
 type Colors = typeof colors;
 type ColorValue = Colors[keyof Colors];

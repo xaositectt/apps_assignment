@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
 import { FeatureTitles, Priority } from "@/api/user_story";
-import { colors } from "@/theme";
+import { colors } from "@/style/theme";
 
 import { backgroundColorMap, accentColorMap, pointTextColorMap } from "./utils";
 
