@@ -6,6 +6,7 @@ import { UserStoryApiResponse } from "@/api/user_story";
 
 import FeatureFilters from "./FeatureFilters";
 import UserStoryGrid from "./UserStoryGrid";
+import UserStorySummary from "./UserStorySummary";
 
 const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
   const [selectedFeatureIds, setSelectedFeatureIds] = useState<string[]>(() =>
@@ -21,6 +22,11 @@ const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
     );
   }, []);
 
+  const totalPoints = userStories.reduce(
+    (acc, userStory) => acc + userStory.storyPoints,
+    0,
+  );
+
   return (
     <Stack padding={4} gap={4}>
       <FeatureFilters
@@ -28,6 +34,7 @@ const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
         selectedFeatureIds={selectedFeatureIds}
         onToggleFeature={toggleFeature}
       />
+      <UserStorySummary totalPoints={totalPoints} />
       <UserStoryGrid
         features={features}
         selectedFeatureIds={selectedFeatureIds}
