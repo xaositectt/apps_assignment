@@ -3,7 +3,7 @@ enum Priority {
   Normal = "normal",
 }
 
-enum FeatureTitles {
+export enum FeatureTitles {
   PERSONALIZED_ADVENTURE_FEED = "Personalized Adventure Feed",
   LOCAL_EVENTS_AND_WEATHER_INTEGRATION = "Local Events and Weather Integration",
   SPONTANEITY_BOOSTER = "Spontaneity Booster",
@@ -11,7 +11,7 @@ enum FeatureTitles {
   EXPERIENCE_REVIEW_SYSTEM = "Experience Review System",
 }
 
-interface Feature {
+export interface Feature {
   title: FeatureTitles;
   description: string;
   id: string;
@@ -28,7 +28,7 @@ interface UserStory {
   featureId: string;
 }
 
-interface UserStoryApiResponse {
+export interface UserStoryApiResponse {
   features: Feature[];
   userStories: UserStory[];
 }
