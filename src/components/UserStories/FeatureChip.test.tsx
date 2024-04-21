@@ -39,7 +39,7 @@ describe("FeatureChip", () => {
     );
   });
 
-  it.only("calls onClick handler when clicked", () => {
+  it("calls onClick handler when clicked", () => {
     render(
       <FeatureChip
         feature={FeatureTitles.EXPERIENCE_REVIEW_SYSTEM}
