@@ -3,9 +3,11 @@ import Typography from "@mui/material/Typography";
 
 import { colors } from "@/theme";
 
+import labels from "@/messages/en.json"
+
 const UserStorySummary = ({ totalPoints }: { totalPoints: number }) => (
   <Stack alignItems="center" direction="row" justifyContent="space-between">
-    <Typography>Please check your user stories:</Typography>
+    <Typography>{labels.summaryMessage}</Typography>
     <Typography
       borderRadius={1}
       color={colors.darkGreen}
@@ -16,7 +18,7 @@ const UserStorySummary = ({ totalPoints }: { totalPoints: number }) => (
       marginLeft={1}
       sx={{ background: colors.lightGreenAccent }}
     >
-      {`${totalPoints} SPs`}
+      {`${totalPoints} ${labels.storyPoints}`}
     </Typography>
   </Stack>
 );
