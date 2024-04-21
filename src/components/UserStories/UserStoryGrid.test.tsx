@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 
-import { FeatureTitles, Priority } from "@/api/user_story";
+import { FeatureTitles, Priority } from "@/api/schema";
 
 import UserStoryGrid from "./UserStoryGrid";
 

@@ -1,6 +1,6 @@
 import Stack from "@mui/material/Stack";
 
-import { Feature } from "@/api/user_story";
+import { Feature } from "@/api/schema";
 
 import FeatureChip from "./FeatureChip";
 

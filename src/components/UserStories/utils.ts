@@ -1,4 +1,4 @@
-import { FeatureTitles } from "@/api/user_story";
+import { FeatureTitles } from "@/api/schema";
 import { colors } from "@/style/theme";
 
 type Colors = typeof colors;

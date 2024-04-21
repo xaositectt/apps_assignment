@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { FeatureTitles } from "@/api/user_story";
+import { FeatureTitles } from "@/api/schema";
 
 import FeatureChip from "./FeatureChip";
 import { backgroundColorMap } from "./utils";

@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles";
 
 import { backgroundColorMap, accentColorMap } from "./utils";
 
-import { FeatureTitles } from "@/api/user_story";
+import { FeatureTitles } from "@/api/schema";
 import { colors } from "@/style/theme";
 
 export interface FeatureChipProps {

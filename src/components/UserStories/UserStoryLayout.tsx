@@ -2,7 +2,7 @@
 import { useCallback, useState } from "react";
 import Stack from "@mui/material/Stack";
 
-import { UserStoryApiResponse } from "@/api/user_story";
+import { UserStoryApiResponse } from "@/api/schema";
 
 import FeatureFilters from "./FeatureFilters";
 import UserStoryGrid from "./UserStoryGrid";

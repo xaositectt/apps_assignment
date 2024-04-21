@@ -1,6 +1,7 @@
 import fetchMock from "jest-fetch-mock";
 
-import { FeatureTitles, fetchUserStoryData, Priority } from "./user_story";
+import { FeatureTitles, Priority } from "./schema";
+import { fetchUserStoryData } from "./user_story";
 
 fetchMock.enableMocks();
 

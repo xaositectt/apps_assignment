@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import Grid from "@mui/material/Grid";
 
-import { Feature, FeatureTitles, UserStory } from "@/api/user_story";
+import { Feature, FeatureTitles, UserStory } from "@/api/schema";
 
 import UserStoryTile from "./UserStoryTile";
 

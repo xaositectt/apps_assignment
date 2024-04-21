@@ -7,7 +7,7 @@ import { userEvent } from "@testing-library/user-event";
 import FeatureFilters from "./FeatureFilters";
 import { backgroundColorMap } from "./utils";
 
-import { FeatureTitles } from "@/api/user_story";
+import { FeatureTitles } from "@/api/schema";
 
 describe("FeatureFilters", () => {
   const features = [

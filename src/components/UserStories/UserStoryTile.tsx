@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
-import { FeatureTitles, Priority } from "@/api/user_story";
+import { FeatureTitles, Priority } from "@/api/schema";
 import { colors } from "@/style/theme";
 
 import { backgroundColorMap, accentColorMap, pointTextColorMap } from "./utils";
