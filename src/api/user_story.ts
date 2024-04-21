@@ -39,6 +39,8 @@ export async function fetchUserStoryData(): Promise<UserStoryApiResponse> {
     throw new Error("User stories API endpoint is not defined");
   }
   const response = await fetch(userStoryEndpoint);
+  
+  // for the scope of this assignment, just an error but ideally handle different errrors f.e: show toaster with different messages, etc.
   if (!response.ok) {
     throw new Error("Failed to fetch data");
   }
