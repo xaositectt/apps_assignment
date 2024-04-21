@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Add env variables to .env.local (this wouldn't be in the readme in a real project, just adding it here in the context of this assignment)
 
+```bash
+touch .env.local
+
+echo "USER_STORY_ENDPOINT=https://static-stage-invent.appcloud.no/concept/file_6LtsoH8EuV8qlKIqDxmaZA0oHH9mhcPJ" > .env.local
+```
+
 Install node modules
 
 ```bash
@@ -14,6 +20,12 @@ Run the development server:
 
 ```bash
 npm run dev
+```
+
+Run tests:
+
+```bash
+npm run test
 ```
 
 Open [http://localhost:3000/user_stories](http://localhost:3000) with your browser to see the result.
