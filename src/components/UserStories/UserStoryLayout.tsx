@@ -13,7 +13,13 @@ const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
   );
   const { features, userStories } = data;
 
-  const toggleFeature = useCallback((id: string) => {}, []);
+  const toggleFeature = useCallback((id: string) => {
+    setSelectedFeatureIds((currentFeature) =>
+      currentFeature.includes(id)
+        ? currentFeature.filter((currentFeature) => currentFeature !== id)
+        : [...currentFeature, id],
+    );
+  }, []);
 
   return (
     <Stack padding={4} gap={4}>

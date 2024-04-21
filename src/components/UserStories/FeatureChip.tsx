@@ -2,9 +2,10 @@
 import Chip from "@mui/material/Chip";
 import { styled } from "@mui/material/styles";
 
-import { backgroundColorMap } from "./utils";
+import { backgroundColorMap, accentColorMap } from "./utils";
 
 import { FeatureTitles } from "@/api/user_story";
+import { colors } from "@/theme";
 
 export interface FeatureChipProps {
   feature: FeatureTitles;
@@ -16,6 +17,14 @@ const StyledChip = styled(Chip, {
   shouldForwardProp: (prop) => prop !== "isActive",
 })<{ isActive: boolean; feature: FeatureTitles }>(({ isActive, feature }) => ({
   backgroundColor: isActive ? backgroundColorMap[feature] : "transparent",
+  boxShadow: isActive
+    ? `inset 0 0 0 1px ${accentColorMap[feature]}`
+    : `inset 0 0 0 1px ${colors.black}`,
+  boxSizing: "border-box",
+  "&:hover": {
+    backgroundColor: isActive ? backgroundColorMap[feature] : "transparent",
+  },
+  transition: "background-color 0.3s ease, box-shadow 0.5s ease",
 }));
 
 const FeatureChip = ({

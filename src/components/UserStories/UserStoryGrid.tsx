@@ -40,12 +40,23 @@ const UserStoryGrid = ({
     [userStories],
   );
 
+  // helper map to sort the user stories by feature
+  const featureIdToSortedIndex: Record<string, number> = {};
+  features.forEach((feature, index) => {
+    featureIdToSortedIndex[feature.id] = index;
+  });
   const filteredUserStories = useMemo(
     () =>
-      selectedFeatureIds.reduce<UserStory[]>((acc, featureId) => {
-        const storiesForFeature = featureForUserStoryMap[featureId] || [];
-        return [...acc, ...storiesForFeature];
-      }, []),
+      selectedFeatureIds
+        .reduce<UserStory[]>((acc, featureId) => {
+          const storiesForFeature = featureForUserStoryMap[featureId] || [];
+          return [...acc, ...storiesForFeature];
+        }, [])
+        .sort((a, b) => {
+          const indexA = featureIdToSortedIndex[a.featureId];
+          const indexB = featureIdToSortedIndex[b.featureId];
+          return indexA - indexB;
+        }),
     [featureForUserStoryMap, selectedFeatureIds],
   );
 

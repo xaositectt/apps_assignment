@@ -8,7 +8,7 @@ import { styled } from "@mui/material/styles";
 import { FeatureTitles, Priority } from "@/api/user_story";
 import { colors } from "@/theme";
 
-import { accentColorMap, backgroundColorMap, pointTextColorMap } from "./utils";
+import { backgroundColorMap, accentColorMap, pointTextColorMap } from "./utils";
 
 const StyledCard = styled(Card)<{ feature: FeatureTitles }>(
   ({ feature, theme }) => ({
@@ -20,6 +20,7 @@ const StyledCard = styled(Card)<{ feature: FeatureTitles }>(
     height: `calc(100% - ${theme.spacing(4)})`,
     padding: theme.spacing(2),
     backgroundColor: backgroundColorMap[feature],
+    borderColor: `2px solid ${accentColorMap[feature]}`,
     borderRadius: theme.spacing(2),
     boxShadow: "none",
     "&:hover": {
