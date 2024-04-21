@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 
 import { colors } from "@/style/theme";
 
-import labels from "@/messages/en.json"
+import labels from "@/messages/en.json";
 
 const UserStorySummary = ({ totalPoints }: { totalPoints: number }) => (
   <Stack alignItems="center" direction="row" justifyContent="space-between">
