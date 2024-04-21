@@ -1,0 +1,128 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/parsers": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ],
+          "moduleDirectory": [
+            "node_modules",
+            "src/"
+          ]
+        }
+      }
+    },
+    "plugins": [
+      "import",
+      "@typescript-eslint",
+      "testing-library"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-module-boundary-types": 0,
+      "no-unused-vars": "off",
+      "@next/next/no-document-import-in-page": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "vars": "all",
+          "args": "after-used",
+          "ignoreRestSiblings": false,
+          "argsIgnorePattern": "^_"
+        }
+      ],
+      "import/order": [
+        1,
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "type"
+          ],
+          "alphabetize": {
+            "order": "asc"
+          },
+          "newlines-between": "always",
+          "pathGroups": [
+            {
+              "pattern": "react*",
+              "group": "builtin",
+              "position": "before"
+            },
+            {
+              "pattern": "next*",
+              "group": "builtin",
+              "position": "before"
+            },
+            {
+              "pattern": "next/*",
+              "group": "builtin",
+              "position": "before"
+            },
+            {
+              "pattern": "@mui/**",
+              "group": "builtin",
+              "position": "before"
+            }
+          ],
+          "distinctGroup": false,
+          "pathGroupsExcludedImportTypes": [
+            "react*",
+            "@mui/**",
+            "next*",
+            "next/*"
+          ]
+        }
+      ]
+    },
+    "env": {
+      "es6": true
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.js"
+        ],
+        "rules": {
+          "@typescript-eslint/no-var-requires": "off"
+        }
+      },
+      {
+        "files": [
+          "**/?(*.)+(test).[jt]s?(x)"
+        ],
+        "extends": [
+          "plugin:testing-library/react"
+        ]
+      }
+    ],
+    "ignorePatterns": [
+      ".next/**",
+      ".swc/**",
+      "bin/**",
+      "out/**",
+      "node_modules/**"
+    ]
+  }
+}
