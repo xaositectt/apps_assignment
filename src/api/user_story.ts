@@ -1,4 +1,4 @@
-enum Priority {
+export enum Priority {
   High = "high",
   Normal = "normal",
 }
@@ -17,7 +17,7 @@ export interface Feature {
   id: string;
 }
 
-interface UserStory {
+export interface UserStory {
   id: string;
   title: string;
   description: string;

@@ -5,12 +5,13 @@ import Stack from "@mui/material/Stack";
 import { UserStoryApiResponse } from "@/api/user_story";
 
 import FeatureFilters from "./FeatureFilters";
+import UserStoryGrid from "./UserStoryGrid";
 
 const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
   const [selectedFeatureIds, setSelectedFeatureIds] = useState<string[]>(() =>
-  data.features.map(({ id }) => id),
-);
-  const { features } = data;
+    data.features.map(({ id }) => id),
+  );
+  const { features, userStories } = data;
 
   const toggleFeature = useCallback((id: string) => {}, []);
 
@@ -20,6 +21,11 @@ const UserStoryLayout = ({ data }: { data: UserStoryApiResponse }) => {
         features={features}
         selectedFeatureIds={selectedFeatureIds}
         onToggleFeature={toggleFeature}
+      />
+      <UserStoryGrid
+        features={features}
+        selectedFeatureIds={selectedFeatureIds}
+        userStories={userStories}
       />
     </Stack>
   );
