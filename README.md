@@ -28,4 +28,10 @@ Run tests:
 npm run test
 ```
 
+Fix code style:
+
+```bash
+npm run fix
+```
+
 Open [http://localhost:3000/user_stories](http://localhost:3000) with your browser to see the result.
