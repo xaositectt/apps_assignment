@@ -25,40 +25,36 @@ const UserStoryGrid = ({
     [features],
   );
 
-  // to avoid double iteration, create a map of user stories for feature
-  const featureForUserStoryMap = useMemo(
-    () =>
-      userStories.reduce<Record<string, UserStory[]>>((acc, userStory) => {
-        const { featureId } = userStory;
-        if (acc[featureId]) {
-          acc[featureId] = [...acc[featureId], userStory];
-        } else {
-          acc[featureId] = [userStory];
-        }
-        return acc;
-      }, {}),
-    [userStories],
-  );
+  const filteredUserStories = useMemo(() => {
+    // helper map to sort the user stories by feature
+    const featureIdToSortedIndex: Record<string, number> = {};
+    features.forEach((feature, index) => {
+      featureIdToSortedIndex[feature.id] = index;
+    });
 
-  // helper map to sort the user stories by feature
-  const featureIdToSortedIndex: Record<string, number> = {};
-  features.forEach((feature, index) => {
-    featureIdToSortedIndex[feature.id] = index;
-  });
-  const filteredUserStories = useMemo(
-    () =>
-      selectedFeatureIds
-        .reduce<UserStory[]>((acc, featureId) => {
-          const storiesForFeature = featureForUserStoryMap[featureId] || [];
-          return [...acc, ...storiesForFeature];
-        }, [])
-        .sort((a, b) => {
-          const indexA = featureIdToSortedIndex[a.featureId];
-          const indexB = featureIdToSortedIndex[b.featureId];
-          return indexA - indexB;
-        }),
-    [featureForUserStoryMap, selectedFeatureIds],
-  );
+    const featureForUserStoryMap = userStories.reduce<
+      Record<string, UserStory[]>
+    >((acc, userStory) => {
+      const { featureId } = userStory;
+      if (acc[featureId]) {
+        acc[featureId] = [...acc[featureId], userStory];
+      } else {
+        acc[featureId] = [userStory];
+      }
+      return acc;
+    }, {});
+
+    return selectedFeatureIds
+      .reduce<UserStory[]>((acc, featureId) => {
+        const storiesForFeature = featureForUserStoryMap[featureId] || [];
+        return [...acc, ...storiesForFeature];
+      }, [])
+      .sort((a, b) => {
+        const indexA = featureIdToSortedIndex[a.featureId];
+        const indexB = featureIdToSortedIndex[b.featureId];
+        return indexA - indexB;
+      });
+  }, [features, selectedFeatureIds, userStories]);
 
   return (
     <Grid container spacing={2}>
